@@ -1,0 +1,116 @@
+import React, { useState } from "react";
+import TemplateCard from "././TemplateCard";
+import { Toaster } from "react-hot-toast";
+
+const templates = [
+    {
+      title: "Number to Roman",
+      description: "Converts a number to its Roman numeral representation.",
+      tags: ["Styling"],
+      template_data: `H4sIAAAAAAAA/81YbVPqOhD+K0y/+KU6LVje7nhnVI5HHChzFVFQhwltoNG06UlTj8jw3++mvNhirfX1nE+Q7T6b7JPdp0lnyogy6y5Q6lczhdhKfTFW1OVvXRmHngVDxCfgBD4Cu0tv+BdZJCoaqIqNBFp5gXXWOBqaB916qWYYqsVcn3nYE0F9dq24xMMWR2NRt8JAMHfoMhvToQxwrdQ1NcXDQy6GZ1uAxg+CS78r+G8xyjj8v1bQrxCMABXwPLKYoTvCvCBY4ZS5yLtW5jfwmAhEiQUOY0QDHPcHh63E1PYU28PVDDM+GdV1zdD1clVTA4f9HhJvKBijgvh1bTRPQLFnOcgTrsxYgim+xxRyn7+KdIiNh8i2iSDMQ3TlJ4MkHWFZkpErScmIUTuW0hMrvx3YjYiWdNYmHE2TrB0y7x5zERRQwVsTSGDMJYnShjmiBYuFnsDcR1zsvMQsG43DwEICx9cWCE7usHA4CydO+jbAKPRszCnkuobOt24S6fucjQmVDMyIXb9q/qPrlYpRNSolTdWLu3qtaBSLurqtV4xiqWrsFqtq1ShXqsVKTb9RZTnBXI2j7eMf+w2YEsL5kDbBATC0fCqXFHIMG6jeIxpKE56eaINLR7MvT6g1bZZh3D3TaKd561eaXm86OmyWmy48P94vt6a1mK8h0IVB+6UTZ+D9F47cntYqnVJ8fKpb7vm92egXB7cHd4Nbq2h2Tbdz0X7s/DRpuzFwO43e7aBrPfRvnbt2g9LBRf/B7DZL5kW7ZD4eOGaXknb3XOs0+o8Dt2+YjVPXbOyX+uSkNr7U9uT2zOdqtGN1XQW2EjxSNMV86GAEVM8VcFQCygS04Vzd6HPfG2Iaa3RJE5hZKPxQgF1MfTm+RxwGPg2hTlb7qzB/Uc9rg40Di5PICpge4gSNKJbFFmARW0Yt7zKIl1gFFOqbV/GkGNaiC2Lr0J/zMYLuRJPYStgq0JGMLtcCj+tKMygcE9vGnpRSa+liT2HdxNoU26cJi2XYtlVsJRSE7kBOXRaJmRItJk2ygb3hYgdeUe2F0waJvf3W+Y8zsAcWi2iUPZhZFAueN8LomqbFucuHqiVAxXwgIwEq5QPtJkC7uZOKgYy8OcUw5bwpxTCVvBnFMNW8CWX2WXo+2S2Rnk8ck7MWduOYnKWgxzGlqHvW7XbIMbyIWiQQX9s6OzRq89zt864u1JO5yaxa2JsI56tyO+u3DzqtN+mCeBDP47QzRSEVctjO1IRUTCNTEdKnaWQKQjomUw5SIZeHmXKQimllqkH6NK1MNUjHZIpBKqR5ma0GqaBethqkT9TLloN00B+Vg2XLfIoevNp+3y4I0WUg+LAeZMrBy8crEw6JPrJwsD5ideGoXujJQ3qhjfmEeJP4WesM7hyRZTP5Z6etTciL9HHsQwW9kz3ySW+I7OLaKIp2KO+RFMdy4siCq5iMTji2hDzL+1HE5Rl6meQX1RCBO97DN7wrc4XJ2JJiksefWMj+iortq+pjeZX5GDOv8LtRHhcO3KaldzjaX9n+3ftriiUSnO8Q0j9SLd8txu8Kk5ObV3bq+cv7r9b5j0rc9zfydnbTWpQtPk280LVvR3wqY+uPSV9dywnO9uQnsv8B76EQmg8XAAA=`
+    },
+    {
+      title: "Get Vector Directions",
+      description: "Gets the pitch and yaw of a vector.",
+      tags: ["Vector","Math"],
+      template_data: `H4sIAAAAAAAA/7WVbWvbMBDHv4oQlDTglSYlhfrdRuhWGNugpTDqEhRJsUVtyUjnpCH4u++kPKlJurZb+yrS+U73u/uflAUdl4Y/OJreLagSNF3uabL6Temk0Ry3zObohD4gq5U3roLFR4VNQgUDtvZC62J4Ofrx5SY9uxgMEm6q2mipwaWLjFZKS27ZBFLeODDVSLNKZjTt4Df5CJZlPklGuSmNxXVGrRQZTTIK+DkYvkogt5KDsWSoLC6U0S6j7T06KWCl4ug2YaWTcRQ6dJI4P57vE9/5zGNTiihom3xWYEkh/WG43LL5Hp0jjEwDYJZ1HKkV8IIwLciczU6eAzXjSeM4AxmDOLDqQUJhTZMXh6vCXaOFtCUWtgltO/ctNr7RkPYSJdK4blcjmmXliFlrZohD2zahrjRA09M22RG41iNZRgp7udCMlaAR5rXfTJnFTV02eOqakZra6+INYBvcC+m4VcGIIaFLUEjym82ImYTlsmURzcVraUKH34fnVxDrOaLeqxsklI2AJP8b0MrwlGgz2gcoensUhdIQ30OxusHhsG1kf7AXOS5HwPIo1qwJLj2WLwI/p/TKkW9KCKn9o8BXLmKO5Sq++2xECc9bnMTV2bQBVZ7kEpa3d3t5aaA69Ao5CaOlnC88REungyI4boIK/oY8mXVPtinleo31Xeocio9CWo/qs1C7+uim2j/lqGJQHJ9+OlJ49R+Psc6k3+3GI/IGna/0VFoniUMUcsws94vuRvhrb75lVrEwYtuGefL9tvzjsA1lbqV023HTdfPGdOc7gobOfoyKy+fv3TXsvaDh4XO28WdxeP8/uv+zAWw/ufHPV9TSz5bfMJ3jf3n/TVLEcfjlD9rtUSl9CAAA`
+    },
+    {
+      title: "zfill",
+      description: "Pads a string with zeros until it reaches the specified length.",
+      tags: ["Styling", "Math"],
+      template_data: `H4sIAAAAAAAA/81WbU/jOBD+K1Gk1S5SivLSFpoTJ3FXWFpREGwPtgVUuY6bmDp21nGAUvW/3zihJS3tAqvd1X6KPZ4ZP/PMizM1h0zgcWr6V1OTBqZf7E3r6eubo4xj2CIZghLoKBI/acMql2irfGOZAVJorgXSafNwcPJP1/catZqFRZwITrhK/em1GVNOsEQj5eMsVSIexCIgbKAdXJu+ba3R4CgmcPYRrMmDklrvCtZYMCFhfW2ibxkIwVTBeS7pEymMQ8rYtTm7gQOqEKMYjkaIpaSsCQofly4NJiQYzH1PZTj0HbvmOPVd20ojcT+gfKCEYIomvj2cLZkSjiPEVaxj1caM3BEGUc9etYxoQAYoCKiigiM219NOlhUBlubiSpMxFCwohfTMx30EecgJWc9XKNFkma/9IEiNRyAtNZAyVESMIQkp55SHhhjlglRJ2G3iUwxHWYqRImVE2mRMVCRFFkbryYddxgMiGUS4MIWM/OT4Mq4oM6gyJEE4ImkRUUIwHVESGIzwUEXbvym4m6WMJlKMKNNJndLAv2r9VXGcquPuNmy3alWcmuc0ao5Xta2Ka9e9XW/HqTtWxXM8z667zs6NpdsDrmseVo4O9ptwK3hMiFSUpMDL06lGlUkCZWndIZZpEZm07f7XyA6+thmetOqw736x2WnrNtlp8YvJ8N9WvRXD+dF+/XjSKOnWFLqssZ7Xjvr8LBvGF/axd87I0bmD4//uTuIz97TZsTtue9z53Hro3LJxvzt+7Lmdar95QnvxwWPvduz1uu24d3ng9S7PWecxGp9+PnD73TY9bfbsnntWPbmNbvvxIW1xpzE629vT2ZnNYJxAMn3HArKWaGRoQuQgIgiYnpmgaKZMKBgpM2tlZiV8QFhpaGmKQCwylWQK5GqS6P0dkrBJWCYRm6fXFEnRoQtBQFIsaS4FmwskKRoyYihhpESVYDTeCoPyJRTqQb0bxZe8VTUGPY9CUoLhvJmOexqo6BkHz+J34zjO26p8u/Pi9iEMOxSWrhdz60PtUgOAY99spcYRDQLC9ZuEn1SCCYClePXVer7QrUPNzH2bGQyB7UfoNmbmONY9e5C1QZH5V16+Qmld8rZZjjLFImdOd/9363Gzp81enDyuBRFFxud8b4qNjv6I0OaV9bbQ/t4rBSQRhpmrXVJJsNJdm+SI5lUqZPyrcruYD78zsXubo8GCKynYmmiWPJwTGPz8uxxiJopO+/UkJvonh4fvYbGYgCt+7CXKVk2KYbVi8iFGKvr0AWB9yitwq5KvF3W9tVUeHLMVEhOCVNFlf3h9vcrwS7p+pE7dd0zyE3gME4RJupjmXfgdMS70j4jRITIs8K5MszXEvhjsqyYg/B/QddkC2gwAAA==`
+    },
+    {
+      title: "Number to Binary",
+      description: "Converts a number to its binary representation.",
+      tags: ["Math"],
+      template_data: `H4sIAAAAAAAA/81XbW/iOBD+K1Gk037J7ia8teS0J3XLsg0qVLCUFtoKOYkhLo6ddRyWFPHfdxwKDZR2S+96qvqh9njGfuaZ8eMw113KvUms21dznfi6vZzrxv1/Wx8lzIMpEmNwAh+Jw3tvGGUWFZVNDN1HEq28wDqv1Yetr127WC2XDY+HEWeYydieX+shYdgTaCRtL4klD4ch9zEdqg2udds0dngwFGJY+wDReCaF8ruCsccpFzC+1tHPBIwQKmE9s7SS0MVCk1z7ShgS6bW+uIF1IhElHniMEI1xPgAcPmyc7afYH66OmIuxa1tm2bIqh6YRB/zXkLCh5JxKEtmmu9gIxcwLEJOhSlkFUzzFFJJf/DEyID4eIt8nknCG6MpPbbLpCLAUJVeKE5dTP5fSAy2/AihHxstu2sYCpZu0ddEExxrSfOyREFGNLWlEzNcElolgsSYD/BSZ3B0lsYckzsOJpSATLAPBk3Gwm3mYJczHgkJ661Aox3+cHP6ZkCmiUBXNzZpCU9jY+NP/lM/NRgUjwUeEqiLOiW9fOX+XzYPDUqVcPjQ+WlapCo1mVoowLpnWQbUEf4Zlwrh8WCgWbwx1J+CwWv3jybejGpwJ+0VYSIJjIOJ+VWFKBIYmNCDxRJlw2jAHl4HpXzaolzoVmHd/mPTMuY0OHNZL3WOn4oSwfnJUOU2rOd+yRBdl2i82ggFrJ27YM0+LHYpPOpYXnk+bYfuu+f3b3eD7gLYK5+nZRd/sh/VJ665Zanabs/7F4LZZ6EwGYbtwduHMWrV2eVDrhYPueaF/61j9O+XvmGe1yazZbd22uu3S4LhRHV2aX1R9FgvQkYRJ2zKArg0iKUqxGAYYAdcLHRz1mHIJWrIwtsQqYkNMc2qlaAIzT2SUSLDLNFLzKRIwiWgiEF0VWOfR8k6uDT6OPUEyK8T0kCDIpVhJToxlDkb1pTAI20ABd29vFA+y53E2hXbI4bAe8+GCwqBxDglfbVRXuysssGzrTqydEN/HTL0H3r2LnwJu4m2/GA8HFipQttXeeiIJ/QQ5dflSkfUMza6Hh4yGywr84elZOj1BYuzxjEV1B5/tiSXNW7uYed6yLNZpf8kBF8gDKVDhRGBPqlaKMpJWJeQifDpPaJN/kei6aV+cqZzJV2e6BR26SwpOd0Df2KGTvRnPEuZRvmy098DYBvhjgUH6T0ksnwYkcARO77VVLwJ4YNQBiXu0sv2zR/veZ/dG5RA4REQ9k/tQ8BoirZcRWchL1x5S2cnlsZTLtUVrwrdtXjP/2sHeI8HMeb8b7djJmPUsya8temGTBIfF8I6pa9hTnzBvRcnel/EddmKdci7gQz1OqFw3Y41MSQzrj3rx8169+HkfFX9b4di/e1+1zZaYNjhhP7LfC+pr9DelDEX0Pw8AAA==`
+    },
+    {
+      title: "Binary to Number",
+      description: "Converts a binary string to a decimal number.",
+      tags: ["Math"],
+      template_data: `H4sIAAAAAAAA/9VWbW/iOBD+K7lIFe1dtkp4a8mpH3aX7Zaq0KOlL9BWyHEMcXHsrOOwpIj/fuMAXaDQPVbtSic+YI9nxvM8M57J2PSYwIPYdO/GJvVNd7o3rdm/a/YSjmGLZB+UQEeRcKYNq0yirbKNZfpIobkWSMfV427jU8stVEolC4swEpxwFbvjezOknGCJesrFSaxE2A2FT1hXO7g3Xdtao8FRSOAsB9ZkpKTWu4M1FkxIWN+b6FsCQjBVcJ5JPlGOZGooYTSS0COgNnmAc6oQoxg0eojFZNEAFHJLd/sp8bvzK8ay77mOXXKc8qFtxYH43qW8q4Rgikau7U2WTAnHAeIq1JC1MSNDwgD85KeWAfVJF/k+VVRwxOZ62smyIoSlKbnTnHiC+QuQftDyPYB0ZLysp60vUbpMWwsNSGwgw5vSFytJed9A3DckUYnksaECsolL4fWSGCNFFqPRLgZEBVIk/WA98bBLuE8kA3TPppCNN8ZGviV0iBgkxfAJpiFiBs9qY/83AXpYymAkRY8yncQx9d272t8l++CwWC6VDq0PjlOsQKHZ5QKsi7ZzUCnCz3JsWJcO84XCg6XfBFxWPf5w8uVjFe4EfxGRipIYmJid6pgSSaAILUCeaBFJT+3ObWD7t6cMp7Uy7FuXNjuvPUYHNX6dep9r5VoI5ycfy2dpZUG3pNBNibULp0GHNxMvvLbPCheMnFw4OLwa1sPmU/3rl6fO1w5r5K/S85u23Q6PB42nerHeqo/aN53Hev5i0Amb+fOb2qhRbZY61euw07rKtx9rTvtJ69fs8+pgVG81HhutZrHz+bTSu7WPdH4mE+gjCVeuYwFdS0QylBLZDQgCricmKJoxEwp6ycRaaVYR7xK20K00TSAWiYoSBXKVRno/RBI2EUskYvMEmyKavslngU9iLGkmBZtrJCnyGNEtJyZqIYzKfw2D8qUo1EhtHcWs7WFoqToQLPgQagLccKG0zzpKDcGZ1uAKUW7k7Fz2vHNObiFk5yV1HjQj1F8IWszvPNaB6LDh2DVrsXFCfZ9wPTrwTMVPASLFq8Plx4X5MmR47ttMFGX70xbUEtC/zSyadTMKmO5Os/WTMTVV2kB4jEXGuH6vr9bPr3hxXniZJnbFyyIZGRfP5F1GjKrLrBO/KxH7LEvaO5OxBO2MxuqM8L4KNiOTJCJI/SqwtwH0OjUroOqJHtmMLECSCMPI0M6pJFjplhNlHmdPfYbxnbLr0a2KfG157lAYaKPdjA1rB67ZpXt7mzn4B8mYTL+8NqOivd8HCib9Sx/2q890rYmz+Z3+cbRFxrmQ79bWnsfZW7KzBPVoc+h6sEjB1oS+5OEi+5x8lTDMxHSu/G8Y2wmRCnaz1zH1uPdnfu/VGtu+tFeK7q9tKJy3mYfJv2GAi3H+DQAA`
+    },
+    {
+      title: "Count Value",
+      description: "Counts the occurrences of a value in a list.",
+      tags: ["List", "Math"],
+      template_data: `H4sIAAAAAAAA/8VUTW/bMAz9K4YuOcwomg0ZUAM7dN2yDRh2KnqpC0ORlVioLBkS1S4I/N9HKXai1HHTdgN2sknx45F85IYspGb3lmS3GyJKkm1lknbfjCydYihSs0IjtAFed9b4FzTeKwgpKSnQ3gq1my/z4tfn6+zDxWyWMl03WnEFNtvkpBaKM0OXkDFnQdeFojXPSTbBN/4bDM19kpwwLbXB/5wYXuYkzQngc1BcaacguaHSoWN7h08CqBQMH5dUWh7bosEkjbNiVJ/u1udbaFlGTvuUjxUWEpIeh7QydH2I6RsHm0DFE1oHdHqZ0OTBQ0yEwl8pLJyNodWLpbOMAo/RWDDinkNltFtVx0tDyamSG4nV7VzbyV2LPUcQ2TQVZRYXD86A5IVlzpfXkrZNiZUaSHbepk8m26iCy2i0fk6o1g4aB6iHdePlB2pQaKQzVPYgiW5AaBUpSm6ZEUGLPjfUCLqQPAGdWA4RjIuXwvD93IPopNeh+IlOHkHo1W5WEZjpi5si1EFPqFq/oSc+fw8nRjEdoKiEgnjpym5dQ6i95/vZwHMhC6CryFf3+ecelC8BnzPywybfRVly5S8A60zKNZYr2NMbESX82CL3utjEgZBnoRqsjQQox+4MEqDYkujEqdkajdHRMt1RQfFnea1cPQxzHjc8FLGr+tM4dMMbTuGNyJFwr4F9NEbH+5EgQ+KMj//auP30L6XUj0nYj6uKqhW3MQ3m2nylrBr2YUCEgcu+k4YyPG4eiTCcgZ9kE9jWrVAfcqz1YvkXpPkXre9XfrT3oyQ6VbrSpv5/63IA+93zuJnU25txFPhJ+37Gd+0fngqxxo4IAAA=`
+    },
+    {
+      title: "Trim Dictionary",
+      description: "Trims a dictionary, starting and ending at the given indices.",
+      tags: ["Dictionary"],
+      template_data: `H4sIAAAAAAAA/8VUTW/bMAz9K4YuOcwomg0ZUAM7dN2yDRh2KnqpC0ORlVioLBkS1S4I/N9HKXai1HHTdgN2sknx45F85IYspGb3lmS3GyJKkm1lknbfjCydYihSs0IjtAFed9b4FzTeKwgpKSnQ3gq1my/z4tfn6+zDxWyWMl03WnEFNtvkpBaKM0OXkDFnQdeFojXPSTbBN/4bDM19kpwwLbXB/5wYXuYkzQngc1BcaacguaHSoWN7h08CqBQMH5dUWh7bosEkjbNiVJ/u1udbaFlGTvuUjxUWEpIeh7QydH2I6RsHm0DFE1oHdHqZ0OTBQ0yEwl8pLJyNodWLpbOMAo/RWDDinkNltFtVx0tDyamSG4nV7VzbyV2LPUcQ2TQVZRYXD86A5IVlzpfXkrZNiZUaSHbepk8m26iCy2i0fk6o1g4aB6iHdePlB2pQaKQzVPYgiW5AaBUpSm6ZEUGLPjfUCLqQPAGdWA4RjIuXwvD93IPopNeh+IlOHkHo1W5WEZjpi5si1EFPqFq/oSc+fw8nRjEdoKiEgnjpym5dQ6i95/vZwHMhC6CryFf3+ecelC8BnzPywybfRVly5S8A60zKNZYr2NMbESX82CL3utjEgZBnoRqsjQQox+4MEqDYkujEqdkajdHRMt1RQfFnea1cPQxzHjc8FLGr+tM4dMMbTuGNyJFwr4F9NEbH+5EgQ+KMj//auP30L6XUj0nYj6uKqhW3MQ3m2nylrBr2YUCEgcu+k4YyPG4eiTCcgZ9kE9jWrVAfcqz1YvkXpPkXre9XfrT3oyQ6VbrSpv5/63IA+93zuJnU25txFPhJ+37Gd+0fngqxxo4IAAA=`
+    },
+    {
+      title: "Translate String",
+      description: "Translates a string using 2 character mappings.",
+      tags: ["Styling"],
+      template_data: `H4sIAAAAAAAA/9VXbVPiOhT+K51+8cPWnRYuIr3jB3eRK47gqF13QZ1OSAMNpkk3SUVk+O/3pIAWEV/X3Xu/QJOcc/LkOS85mdg9JvCVsv3ziU0j25+NbWf+79v9jGMYIjkAIZDRJJlLw1c+Y7TygWNHSKOFFMxO6o2w/SXwy7VKxcEiSQUnXCt/cmEnlBMsUV/7OFNaJGEiIsJCY+DC9l3nEQmOEgJrG6BNbrQ0cufwjQUTEr4vbPQzg0lQ1bCezwQSccWQJtaplpQPLuzpJaxTjRjFINFHTJGiAghsLO0djUkULraYyEHP99yK521tu46KxSikPNRCME1T3+1Nl1QJxzHiOjFHNsqMXBMGh58+qxnTiIQoiqimgiO2kDNGlgUBlqHk3HDSEywqHOmellEM7sh5eZy2gUTjNbQpC1kqZ87KlPktWXAmqYhWn9dxKXr9TGFQLqIxRq6IjqXIBvHjxMMo4xGRDE53pzrduFw6cCpFnzJz5gmN/PPm35ulkltxa+52zfHKNbdU9rZr285myXW9ahXWqk7Nq1RrbvUv79IxEQR71Rub+3u7ddgSzKVEakoUcDJfNZAyScBlzjVimZki4wO3+yN2ox8HDI+bWzAOTl121Bym1SY/G/e+NreaCazv724djmsF2YpG3yusUz6Iu/w46yVn7mH5hJH9Ew8n3667ybfbVp1ddYftYavUGnWGDdoN9katUjs+quPyUXB120kaSat+MGzfNm/bQafS+X580wmipDP8krSTTrkV7N12g3jYHXbjzvDKa3Kv1j/e2THumU4h6zKufc8BtpZ4ZGhMZBgTBFRPbRC0FRMaMm/qPEjtlIeEFXLb0ATTItNppmFej1MzvkYSBinLJGIL/9oinUXw3UREFJY0nwWdMyQp6jFiaWFBTBVg1F4Kg/IlFPpGvxrFrDQYDHoR9wUk3osZ0SLMDbwPzVeTX2vBeC8G834kiyoAI1XEUFrBEFOui9U/mt8buaF7zVJlRbMHxQ0NCrpisXvDQDIHgGXfbiprn0YR4eYqwnORaAyHpfjhZVXYcAtyYGHbzjRlnwusOmtuPIjEcBbNz1x6M6H1UaCwyMk3Fe3JFHujodVgmLn5gaEiITkfdwSepozqWfh/GB2/hov/AhGSpATpN/Jgrs0/EhLrMyyQ2X2C7TImRtYhVdqCCsQHRBUzrSHkHsLxKhkrubaick+nRBhaAIOESoK1uUPSPKHnNWph8mMCkT7F/hLyTzsfhSFFUv+RIHgtIw/S4x+iTWScmXboo7gB7//+MvE/4GXR4LyPmWesvJCZp+N3tS94vaPLr6hfULIsgXEmJby08no1K2UnBLpbTMy7ywpMaSl4bL42L/WrPnpjs1KnyvSxBQiDjCFp7d2k8JJQeQf1NhQPquqy5lO1FTMx659+R3G9ewx8cJQucbFjXjj/AqS0kfzBEAAA`
+    },
+    {
+      title: "Get Head Pixels",
+      description: "Gets the color data of all 64 pixels in a player's face texture.",
+      tags: ["Styling", "Web Request"],
+      template_data: `H4sIAAAAAAAA/9VY204bSRD9lVZLESBZODYh2oyUhwQWgrQbISDZhwyy2jPlcYue7kl3DcFC/rK87Zdt9YyNx2PwnZB9svtadU6dqmr7nneViW4cD77dcxnzoBzzxugz4L1cRzQUNqFNtAchHe2mb8WMP1UMGjwWKMa7aPb++KTz+eNVcPDu8LARmTQzGjS64D7kqdQQWdHDIModmrSjRQohD3ZoDe7QitAbCXlklLH0PaS77U0nsQA65I2QI+0q5k8B2ScQMTuXd6BcyIfXtCxRKBnRhp5QDqr7acNOo+oAGfCWv3nTXaPiyqGJ9R99wlQYfty7xIrBjF+OYR9YsYl5apjpMaEUe/uGSR3LWxnnQrFsrt+m28tdJBCqfjm08gawb02e9B8HSaNcx2AV4Xw4Ssi3jNIjYpkSA7BhuONYT0TA/GpuYf9/gUl8z8X0csj//cloagH0MywQWyBlp0B+xQwNi0REMfdxt+ByhWMSqvr7FaRcDynjco1BqyHjoKr3MlqdPuUM+cKHwwZ3yiAPXg8btbTOdAdUJa99ktK0yTHLkeZxkPnxrbA0yFRuhRr7yE2G0ujKRAwusrKYpTNfhZWiq8Bz5gArbrxb1g2PYOIE3uHKTpwXVHgXEvCntUF/1bk1lJtSJ6TtL1/Ojlkib8GxlAoFyyje0o2j6yp+t2b560uN1bIYjwpqYX5ysn04c7KrOiiSylkz9vnEA/GwaTngZ459knEM2tfoaLQlHhBDMqpX8YrBt0PSx+hunqNU+0SAr6JlEeWFP4+1AwpVpwx3vSP4Cx88eP8yN9RILDfVVEOBy2jWRaaQjU+buTlQ6qouPcTMBc0mZZVBYfc1YLMPKm2+Ipu7Xph7zT/23W1S1ccKQb4c6IiSXpvcPYT6yMTATpT5UQ31P9C9IEBGF5qoM1SJ+JsVrJ8WyVBavYDvOThkf1MVMvFapldRty9sTapQUldwa6RnA7vyeb6O/VLsj577TTS2xiWzanpUqF0TD6pcTFNBgT6WEX4VKn82LlymJP4eZDgcKHgf8p5UKrBJd/dpZi6915fUfXXyNDEWMhC4Ji9AD4WNaVlA7iol58rmk7byQVGdYX9JSvyjvtAJuGrmnRj7Z+l9jYmnk258ZMKlFdFNUWdiSS0V/bMiK9rYqJ+Pr3yKfNnbQJRIJW0V8nWezl7yeorpJ7vXIqDa2PS5km8rOFvL4aw5HlHZtkYt6vOXNzKbS1akTPneeX62fEq2N87J+Ym9ZKna27A0bUZE8bPHbfxKekW/cuFut6C10dpbnYXGi7JAydDaFgclo3USphCdC+vgc552wT4jopX0vQSi9osjOtgyooP5Ql3DjfYvp4UeNxvXsfnyX56YOYprb4Pdg2l2L04/HvlAPmttVHK1vrp6kGqp9CGjN0Ncf6gv7JaLHlGbUfHwP9BmPCzB6Oyz43r4HxETfxK8FgAA`
+    },
+    {
+      title: "Reverse String",
+      description: "Reverses the characters in a string.",
+      tags: ["Styling"],
+      template_data: `H4sIAAAAAAAA/8VU33ObOBD+Vxhe8oI7YAccuOlDek4u9oRk4jg/7CTDCCEbOULihEhKPfzvXWE7xanb3t1M555gd79dffutViszZgI/F2bwsDJpYgZr27Q238CclxyDieQCQIBRJNug4a/x6KzGsMwEKbRFgXc1OI0uPk2Cnu+6FhZZLjjhqghWj2ZGOcESzVWAy0KJLMpEQlikCzyagW3tQXCUEYgdQDb5rKTGPcA/FkxI+H800d8lOCFVQbzxjMkLkQUxrpWkfPFo1k8QpQoxiiE+R6wgbTgADnZOTiqSRNsDVnIRB47tOo53ZFtFKl4jyiMlBFM0D+y43kklHKeIq0w3rJMZUGHQev3LzJQmJEJJQhUVHLEtThfZBQItLciDViQWLGm19E2U1xSG0aiyX7SFRNVe0QpDpcSAJiTCChwG5QYyikbJDz+SUsTzssBIkTYZnfNMVCpFuUj36w5WyRMiGTT3llofPO30m0sxp0y3vKJJ8DD8o9P3D7u9bt/1rY7nOkdev+d7Vsfpu4ceXDmnb3W6tn3o+/aR92Tp+wOHDU47ZyfHAzgT6uVEKkoK0GQT1ZxKSWBk1gtipXaRamTP7lM7uR8xXA09sCfXNrscLvP+kN9W8Z9Db5hB/OzYO6/8FtZV6M5l094onfGrMs5u7fPemJGzsYOzm5fwC7bD7vR1OgkPLwYsnWVXTvjXeBl+CavZ5HY5vbuqLgfjNFzeOBeTk254d2JPs6kbTobVdJIuL5ahczm5ep0u2XO4PGWzQeiG1cif39sf9XzqGnau5CpwLJBrR0iGKiKjlCDQujYBaBZMKNi72nq32DmPCGtttpYJ3KJUeanAr6pc2y9IgpGzUiK2HbAp8vUNfnMkpMCSNl7IuUWSopgRQwmjIKpFw/+nNCjfYaE+q3/NYv00aA5yfe9bPJzv9YhhH9GixURsC53q6poLhANzWBhnNEkI128n3kCSCnhT/P51/XZg14OxbWubpaLsw4bVmqbZ8Nn3TIOA0XoIv3ip16Af6Fhg0Qip1/Cn1+K/VHG+q7Ke17sqbTkaNd7ku84ZVf+zEDuENi/lOS3U7yL0tmi/eTQ7fY0E5Vudn+qv2A9gWyQIAAA`
+    },
+    {
+      title: "Fetch Palette",
+      description: "Fetches a color palette from a Lospec Link and registers it.",
+      tags: ["Colors", "Web Request"],
+      template_data: `H4sIAAAAAAAA/91XbW8TORD+KyujCiqWhHK0EivxAdrLHYhDiFbwgVSRY092ffXaiz0Lrar8d8bbTeO8tUlLuBOfEnvn9ZlnZnYv2VBbceZZ9uWSKcmyqzNL29+MjWoj6MhdTkIkg1C20vSvuQlazSFlkiOfSNHt5VFv8P71SfbHi/39VNiysgYM+uyyz0plQDg+wkzUHm05MLyEPsse0jM4R8f7wUmfCauto/99ljsA02dpnyEJNFc9QFEkH7gGRFIen9JDhVwrQY9HXHuIpUngYRp7JsvB5Zfgc2i1jJSmbr8XKthOV4fFL5ZEBT7hRiYOcuURHJ2S6uY47XBUe8ER4jg8OnUGWDhb58XypOhUGwlOU17XqpTpT86q9srklMU76ysQCXk76/yiVE7HRJ7aYLaXKpnFFXQgiTwGBpqXFUXDxuOUeW2RZU/H6RxHKzMAHZE0MC5QV9IdXlThP54jHSpdO64nETJbobImupDghVPNLem09EveHEXeX6zrPeB4P/9tQVp2Ja1BYzEYhE7eSQrEymfdrm4kO9SI3Vb6iSZ2dh342jkQ+OTgeZTD3iKEhTIYt7lsB0QTylTz2f6C5lAPkOeRrp3E3wtJBQjoccbe+ORvJSWYMHNEKyIvCC0l5qdS5PBgTCRpbbMale6MQhe2tWFNOMummwccfOPu9gF3JTRXvKZfPN17Yau2mjDDwRDVdRqHDqgn3hHk2wrIwdebopkvyhXd5mzskOVHgUW7nQLOYz5sUNTjCyOo042t/XVpD62EpKft97i0n2H4ETwthoYD8yhEFX6+gfe/AK+9foSvNXhM/qHRY+WdXG/C5jDNupXmykR5G6S1l5yEHr+L/4NZGsV6/w8ebW5jkUtLufivn50rs0BQmY+UwE9c1789EqtROK60wmNariZfDYKDimbPXcdc0dz+UhBWd9iJq6fr4pWmeZKEkZocFtzk4OMO61n3JxfFIg6rm2uiMkXScXHWzBOpwo6kK0rBTHf2xOSWVkzYzM3SvR/8N9dwbxaEVxVlKLfaV2rtrfn45eoY1Gi9EExdLoawU3IsHjXrTu3uHOzeCOpSC09XQ/hyAwYZ68qt8Uffv3Vv5eC9Z9hbq8xtI2zbr2prpfCgoQuBuvufds8aU+EnvnluQGxB3xiwktm3ym93lrYfPTELauP5N5Cb90Tz1bh2O9yJkvN7fuZt53T8A8oX+gS7EQAA`
+    },
+    {
+      title: "Quantize Color",
+      description: "Quantizes a color to the nearest color in a palette.",
+      tags: ["Color"],
+      template_data: `H4sIAAAAAAAA/81YbW/aOhT+K5GvprW6bLq04kpEXKSuLVu1q710VXWlUSHjGLDq2JnttOVW/PcdmwAmJLx0pN2nxMc+9jmPn/PYySPqc0luNQq/PyIWoXDaRrXsGaJBKgg0sRrCIBhjaJyNhjdnsV6uUUMRNng2CqyPZ53ep3dX4XGz0agRGSdSUGF0+NhFMROUKDwwIUm1kXFP4Jh2Ufga+uiDUbhrF+kiIrlU8N5F+EcKxloXGeh3lq8pFob9T4PT6aDJDfQygzkj0D/AXFN/OAx4XfNXBie75He7Zl/yyHNaLHs/gmTcusVhDRUeF4elAxy4cYGRgRnRQFCsqDZlgcr+INUEG+oHoo1it9SMlEyHo+KsoJWKiCoOic1dIdU9pxVjQ0bBQMkY8hqyOyqCBHNqDA0uzt4+U1I3E+BRKkxYr7Eo9DdTG0Zux72EAZsERIMmkxrSXBoU/jWp5eiaiB7lHl8t+cAsUwNGM05s4w4raCQ8VZjPQkQyMUwKzxBRTRRzVvC5xorhPqd2xzU1XgzNbWOAvnkI5sHsHMKX+Z54q9e3hsAxYBEBFmMvAqPSzQGcZjMIaewMLce09pfUBJRBFaiwJei93dZ2S9Go/SmN+1Qd6MOgFWF127PEa78JWu55+f5dcId5SvXC6Y9Op9E4OWl/vlzYrDa0vwGrxLBomg/n/0ElRtRHpL6CyIgJ42tYlKmfy2vhedRY8ezznsFDz1fOwOhYhCyc0B2iCx18YFFEhRVUkg2JxgA9I3nJ9Rb8ewK0z+ZGqWH87Y9MYqZYu3iKtBso2JvSeIN8TwflqOCAB7Mm0nHBQr22qgpnmRGqZJbVbRBpvDpL3cfDwTHH7z01/0LRX7toS6Fgg+dEopwQU5LOGTEXjCtbb15W0HGhM2MuhxVmFDgtcFCYgNTaUJiixFiVSxwBswoXUsVVMWjD3m/JoA3orzKoHH3Qkzn0rnaC0xEWgnKNlhnlOr2+PB7le7DivG4rCJdTeah+L5hI3On2+1XzVi7HnsvxMuJXisVWASplsf5l6LLLkj9RKjS+o9FaAIs3MyoPZ1UezxjZJI/lCC1N9k9VGMvduFlIkWazuYTktpErmlBsXlTiNlFsF427UunixnHCubwPbHU4pRvSJaHrSHWOyWgVi3J5m7lsf8DMpqyoOBca/czK9rueMnuFV51ZYf3VynwF346jg1cMPugeDmY7VqsfvslM7myC9mF5/Z4/TH8eVJXosMJEj3KJHr1kov0KEz3OJXr8kolGe8wTFjhwpXD4p3sfeu8O0HWJXkpZaZJYEPoC+vcE0HNXk2/FV5ON1+RqT5QnQbrmg08qE/THwXX2FTM9FqzV/qzIf/ZZu8Vk/WGwyx+IE02oiPxvztnan1VE1e6L506iuVNVBzzfw917iz2tF16bP9JxZWfrjnfeJ6Cz758rN5Ofv2tBPzAYAAA=`
+    }
+  ];
+
+const TemplateList: React.FC = () => {
+  const [search, setSearch] = useState("");
+
+  const filteredTemplates = templates.filter(template =>
+    template.title.toLowerCase().includes(search.toLowerCase()) ||
+    template.description.toLowerCase().includes(search.toLowerCase()) ||
+    template.tags.join(" ").toLowerCase().includes(search.toLowerCase())
+  );
+
+  return (
+    <div className="max-w-3xl mx-auto p-6 bg-[rgba(0,0,0,0.5)] h-full overflow-y-scroll">
+      	<Toaster
+	position="bottom-right"
+	reverseOrder={false}
+	/>
+      <input
+        type="text"
+        placeholder="Search templates..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="w-full p-4 mb-4 rounded-xl bg-zinc-800 text-white placeholder:text-stone-400 border-none shadow-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 transition duration-200"
+      />
+
+      <div className="mt-4 grid gap-4">
+        {filteredTemplates.length > 0 ? (
+          filteredTemplates.map((template, index) => (
+            <TemplateCard key={index} {...template} />
+          ))
+        ) : (
+          null
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default TemplateList;
