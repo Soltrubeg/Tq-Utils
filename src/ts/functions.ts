@@ -2,6 +2,8 @@ import toast from "react-hot-toast";
 
 let ws: WebSocket;
 
+var success_toast: string;
+
 export function initializeWs() {
     ws = new WebSocket("ws://localhost:31375");
     ws.addEventListener("open", () => {
@@ -13,8 +15,11 @@ export function initializeWs() {
         console.log("Error occured trying with codeclient socket:", e);
     });
     ws.addEventListener("message", (e) => {
-        toast.error("Couldn't connect to CodeClient.");
-        console.log("random ass message:", e.data)
+        console.log("Message from CodeClient:", e.data);
+        if(e.data === "not creative mode") {
+            toast.remove(success_toast);
+            toast.error("You need to be in creative mode.");
+        }
     });
 }
 
@@ -36,12 +41,11 @@ export function sendTemplate(title: string, data: string) {
         },
     });
     if (ws.readyState === WebSocket.OPEN) {
-    ws.send(`give ${nbt}`);
-    toast.success("Template sent to CodeClient!");
-} else {
-    toast.error("CodeClient is not connected.")
-}
-
+        ws.send(`give ${nbt}`);
+        success_toast = toast.success("Template sent to CodeClient!");
+    } else {
+        toast.error("CodeClient is not connected.")
+    }
 }
 
 export function getGiveCommand(title: string, data: string): string {

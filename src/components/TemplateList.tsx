@@ -104,6 +104,18 @@ const templates = [
       description: "Generates consecutive pairs from a list.",
       tags: ["List"],
       template_data: `H4sIAAAAAAAA/+1WXU/bMBT9K5ElBGgZIkxMIhObNibYpGmapokXgiLXcVMLx47sG1hV5b/vOqTFTT9oV8rDxlNj+36cc+71dUekJzW7sSS+GhGRkfh+TcL2Nyb9SjFcUpOjEdoAL1pr/Gp2nFezCElGgY6tcHf0+Tz9/ulX/Obk+Dhkuii14gpsPEpIIRRnhvYhZpUFXaSKFjwh8S6e8d9gaOKSJIRpqQ1+Jxjb3KS54VwlJEwIoFWz/4MKcycsOtfXuC+ASsHwpE+l5b4hGuyGfmaM7FJeuZw9LTPP6SHt3QDJNBnnw8oNHU4DuuCKGwrcBiVCs0Hf6CKggRQWDhaB1L1+ZRk6+SAsGHHDYWB0lQ/mM8JVpTJuJJKauNa71zXKXSmIo1Bksc+5NMIW1OA6ZWZoEYdFTKSuQ2KlBhIf1mGntqVKufSK6yqF27qCsgLch2Hp1rfU4KKUlaFyjJXoEoRW3kbGLTOi2UWfS0RCe5IHoAPLwYNxsioMoaZQOJXXhvENnRyEvK2cVzgPUrSyNGzIJH/ApKrmbvA+rSSkt1RWfBKhPZv2P2yyLuQAppqhcOZSfsBQSkMTIjgNGsfgXRDht/PxuUQzXAZCgX+Fs/byNwkePI+OZzx7MgWae756jOrcIXBC4HFMvtrgi8gyrtw8Ya1JNkTSgnUnjpfwbY3t3MYmFQh5ULZXnjRQ5k0tbKb0viEfGVz3Rh39ZQPRMt22lOJLL8jcGOO+XBAlakhNVHAd+I2rHAaLORlecgp/SUmsQ2huU0ZT6Fdy2SkoDPZ2ENAeSrr/Otr36zqtQPCTqpwHHn1DGU4/F1UYzsCNnLIpTHutWj221APOItp+F6wWZXGEjooXHFwrXTYzZovKHD2/Mo91mNh/tay/nkMZN5c2F2Z5463aMsuL1BHnzOBN4k6fbUkz+bewmTjLFe4M1Y8lzousW/HZscKktnz1uSL6G+gw/mvwlLN4ivTpGhNUaVNsieeaT+i6LN8/Gct/55VYKvl//k5ELw/Dy8Ow6cPQGSQr2l/XfwBxgtweZREAAA==`
+    },
+    {
+      title: "Compress Data",
+      description: "Compresses data using gzip and base64 encoding.",
+      tags: ["Compression"],
+      template_data: `H4sIAAAAAAAA/91VS3PTMBD+Kxpx6MU0BEiHejyZ6YPwGKYcGnqpOxlZVhxRRTJ6ACbj/87KsVMlTVtaKMNwsne1j2+/3ZUWOBOKXhocny8wz3G8lHHUfmM8dZKCSHQBRmBj2by1hr9G470aIcI5saSzAu3ieDQ5ORzHL/YHg4iqeakkk9bEixTPuWRUk6mNqTNWzSeSzFmK4x04Y9+tJqlPkmKqhNLwn2LyxYEySrGF80ZzBBE1MwYdQ9oU1xdwyC0RnMLxlAjDQmsw2InCxBDYZzz3KTMl8sDpKuu3GdTSpN2OqtCk2o6KGURkhb4S4RhyhssCvfnBS1Dm6JAYtvdy9ybMKps6Q4llISZjNb9kdqaVK2bbCwTJyZxpATWuXOudixrId9LG/YjncUhByYF7CTBwXUfYCGVx/KyONppbygkTQXd9q0CtnC2dBb2tSi9/JRqEUjhNRAcPq9JyJQNFzgzVvNGCzxnRnGSCIauQYTaAsf+rMLhcQwGc3xuFnx+PgLatgwBSWR/toxQVIpSy0hqUaJYPT9w8Yzrp+f8IJX4qh6fQGlkkvUYAZU705aTQjMnhB2A46QUKpDRKngwGBwej0fCY0waYrpJepws46F/vxYxLGy5a3q5oU8mV5/PBNc9MTCwpAl/VlT/ynHgG4TjG7wx6y/OcSb/1tDXJK2Cb0817IUi4V8OYtbGxs1zsdmx6dnEDZ9v9Al2fLCfnjitmabTR/M9GeZyGqqb5fvBvHeWtQboJuiFKv6lsRcWZX+ixeu8zP1JVWWWZ+e2ybuemf48B+TQePX21GpCjGdF+VwNOlgswVoct8E0aHjiYY+2u5vKUF3CrPTDr3noP1z3/6S7eEWVjOP0L0z1A/1NdywfztaQqZ49V1+o9e+TC/uDeNfM7Vstx/mt7d4+sG3u37glnPwGr7O/GgAoAAA==`
+    },
+    {
+      title: "Decompress Data",
+      description: "Decompresses data that was compressed using gzip and base64 encoding.",
+      tags: ["Compression"],
+      template_data: `H4sIAAAAAAAA/91WS3PaMBD+Kx71wMXNlDakiY+EcR+HXkJziTOMbAmjRpY80ioNZfzfu7INGAJJSUun05O9q318u9+u7AVJpc7uLIluFkQwEjUyCdtnRKZOZShSk6MR2gAvWmt8qzXeqxZCwijQpRVqF6N48mU4jt5dDAZhpotSK67ARouEFELxzNApRJmzoIuJogVPSNTDM/4AhiY+SUIyLbXB94S8iuPR6fs4IWFCAE1q5Yj7sIZbG4wwd0KqWzwWQKXI0GBKpeVdezTohd3sGN2nvfF5Uy1Zx2md+vsMC6oT74aWGzrfh4vbgKp5cE+l44GzQuXBhx+iRCULhtTys9OTfah1OnU2o8C7qCwYccdhZrTLZ7tLRMkpxo3EKleuVe+2Qg6cgqgfChZtUOCpscCxmopUVUis1ECiN1W4RXOpJlx2ePakoVo7KB2gHuall++pQaGUzlC5REh0CUKrjoJxmxlRa9HnmhpBU8kD0IHl0IFx8aswhNpAAQ9wMIrLJWssqIOvUfQfd2MmFHSHnrXrUsdae74dPPJM5QRo3vHVSwCxR+VrwOOIfLLBR8EYV34Ds9aEzbFekW3vaCfhWYVct7GJAyFP2GoeR3VZ4Z5tx85PGvaeWfjGaIuAdA7cotpmumbAD+CT87QzypLGPVH6B3Tz6zh+fb7q5uWMGj9anV5e4TapfKyHLfLtPryQxbFxaxKvRI57+MKsDZV7PP9pGp+J0t8srLkK/bXJ+P9Ul7/r1x+DY1X2zWp1/ML+4N7V8zvWzTj/tb07IOvW3m16HonF1Wf093h8ehi25vMzGsdGF9f+/wT/Q6qfv6hNhBIKAAA=`
     }
   ];
 
@@ -139,12 +151,12 @@ const TemplateList: React.FC = () => {
   <div className="flex items-center mb-6">
   <img
     src="https://soltrubeg.github.io/tqutils/icon.png"
-    alt="Tqtils Icon"
+    alt="Tq Utils Icon"
     className="w-16 h-16 mr-4"
     style={{ objectFit: "cover" }}
   />
   <div className="flex flex-col">
-    <span className="text-3xl font-bold text-white leading-tight">Tqtils</span>
+    <span className="text-3xl font-bold text-white leading-tight">Tq Utils</span>
     <span className="text-base text-stone-300 leading-tight">
       Utility Functions for your DiamondFire plots.
     </span>
