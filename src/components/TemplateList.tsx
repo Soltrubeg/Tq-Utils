@@ -52,6 +52,18 @@ const templates = [
       template_data: `H4sIAAAAAAAA/9VXbVPiOhT+K51+8cPWnRYuIr3jB3eRK47gqF13QZ1OSAMNpkk3SUVk+O/3pIAWEV/X3Xu/QJOcc/LkOS85mdg9JvCVsv3ziU0j25+NbWf+79v9jGMYIjkAIZDRJJlLw1c+Y7TygWNHSKOFFMxO6o2w/SXwy7VKxcEiSQUnXCt/cmEnlBMsUV/7OFNaJGEiIsJCY+DC9l3nEQmOEgJrG6BNbrQ0cufwjQUTEr4vbPQzg0lQ1bCezwQSccWQJtaplpQPLuzpJaxTjRjFINFHTJGiAghsLO0djUkULraYyEHP99yK521tu46KxSikPNRCME1T3+1Nl1QJxzHiOjFHNsqMXBMGh58+qxnTiIQoiqimgiO2kDNGlgUBlqHk3HDSEywqHOmellEM7sh5eZy2gUTjNbQpC1kqZ87KlPktWXAmqYhWn9dxKXr9TGFQLqIxRq6IjqXIBvHjxMMo4xGRDE53pzrduFw6cCpFnzJz5gmN/PPm35ulkltxa+52zfHKNbdU9rZr285myXW9ahXWqk7Nq1RrbvUv79IxEQR71Rub+3u7ddgSzKVEakoUcDJfNZAyScBlzjVimZki4wO3+yN2ox8HDI+bWzAOTl121Bym1SY/G/e+NreaCazv724djmsF2YpG3yusUz6Iu/w46yVn7mH5hJH9Ew8n3667ybfbVp1ddYftYavUGnWGDdoN9katUjs+quPyUXB120kaSat+MGzfNm/bQafS+X580wmipDP8krSTTrkV7N12g3jYHXbjzvDKa3Kv1j/e2THumU4h6zKufc8BtpZ4ZGhMZBgTBFRPbRC0FRMaMm/qPEjtlIeEFXLb0ATTItNppmFej1MzvkYSBinLJGIL/9oinUXw3UREFJY0nwWdMyQp6jFiaWFBTBVg1F4Kg/IlFPpGvxrFrDQYDHoR9wUk3osZ0SLMDbwPzVeTX2vBeC8G834kiyoAI1XEUFrBEFOui9U/mt8buaF7zVJlRbMHxQ0NCrpisXvDQDIHgGXfbiprn0YR4eYqwnORaAyHpfjhZVXYcAtyYGHbzjRlnwusOmtuPIjEcBbNz1x6M6H1UaCwyMk3Fe3JFHujodVgmLn5gaEiITkfdwSepozqWfh/GB2/hov/AhGSpATpN/Jgrs0/EhLrMyyQ2X2C7TImRtYhVdqCCsQHRBUzrSHkHsLxKhkrubaick+nRBhaAIOESoK1uUPSPKHnNWph8mMCkT7F/hLyTzsfhSFFUv+RIHgtIw/S4x+iTWScmXboo7gB7//+MvE/4GXR4LyPmWesvJCZp+N3tS94vaPLr6hfULIsgXEmJby08no1K2UnBLpbTMy7ywpMaSl4bL42L/WrPnpjs1KnyvSxBQiDjCFp7d2k8JJQeQf1NhQPquqy5lO1FTMx659+R3G9ewx8cJQucbFjXjj/AqS0kfzBEAAA`
     },
     {
+      title: "Progress Bar",
+      description: "Generates a progress bar.",
+      tags: ["Styling", "Math"],
+      template_data: `H4sIAAAAAAAA/91Y/47TOBB+lcgrBL0rpS0URMSdtOzewknsHgLEPxRVbjJNLZw4sp2l1dLX4UF4MsZOf7hpuqQNZZdr/2g8Hs98/vx5YveKDLkIPinif7giLCR+3ibN+a9PRlkSYJPKCJ3QR0M898YnazGjbKNJQqrpwgutV6dng4vn7/yHT3u9ZiDiVCSQaOVf9UnMEggkHWk/yJQW8SChMfSJfxf7YKIl7ZskfRIILiQ+98nRk1H4qIv2Zp9odLHG11JEEpTynlP0mn3EPqYpZwH2jihX4Dqjw92mmxpDm5wfTNKh4KEzaJX38xhnY7OW44okna6DegEJSKpBedRLFwCHVLa2IRTDUaYCHOEiUFqyT6DHUmTRuHw62MqSECTHGS2H4hx/znyW3fjYiloeGguOAEnR89vX1XdzQJGplaclxl2psvahifs4Q5VmifY7TRb6ayKlGQ+lwOnOyGzWJIoLTfz2rFnYB2kyAO5sBKNqNItMp5lGu56mpn1JJTZSnknKFwCJSDUTiWMIQQWSWSuOeU8lo0MOnhaeAu3AeFoVhhHjCkSSxTuDOMmkxC28lLWDolOZjZhOBvWhnNMJi7O4FEqnKhQOSaTH9YAcx0Yznhh5wZhKGmiQa2C6VcGY4Z0VFj0xiglhhNrTg0vKM1hGmPetj/9is24Fr2W2uZ4LxN6IcQ6hi/vhLri7N4Ub4lRPXdiPKsM2hakO30e93tlZr7cHepO5hPHeTtDrUH50bD/7Qt8g/fEG8iEfaBo5mcUixJnJY7Bjt0/+Vd5LFoaQmENGMHcJp4iTBcVjyCph9/EMi/U8Nsk04y1TB/AUQCySspMMFs1BXniLhxkTapn7r30iFCafO5VXXxUIu2bm3XPtuySvRYUgbZf1jSGleZ1yuyV3d7bGwAmncXqRxUPYi81KmFCntbnotA/ERnUtn+ZbbqnmU3bJFHZ55yIEV9EPSqjbkLPjfUs0uEeQqutwrQIKipwcio+8Br9anALq6fFOTPX43h1MdC8/VzQeoET/sAbDWaOxRtOvqTq2VO8+wdJY/AdhKi59NdILErj/W0ig3Wq3O9tX+f7BlnnfWWwvbRdA8Vi9Km1v8JQbbtQ1z5rzl4W3U41bH3m71L/P2v5527bw/3xp58fnujVtcem6gZL2BlKg+q2WLIkOqp2fQlK3NkmVdHwDHC3/nalMUumd6pl90ee3ysbftpHLouH0dOc9lovGtRxWvUG9plKB9woiGky9/H52gltZuXvZ+pyzhJ2DUjSCfyapvH5Lb95Ft+N5q6ccvP8SPl2COuZcfIbQe0ejmkAKtaU0ALp8B/qveqDKFgAA`
+    },
+    {
+      title: "Format Number",
+      description: "Formats a number to use suffixes like k, m, etc.",
+      tags: ["Styling", "Math"],
+      template_data: `H4sIAAAAAAAA/81XbU/jOBD+K1EkxKILbNI2hWZvT+K2dCmirWC7vKPKSZzGxbFzjgMtVf/7jdOXTWkLhRV3fEDE45nxM8+82B3qLuXeXaI710Od+LozXuvG5L+jBynzYIlEF5RAR+Joog1fmURZZQtD95FEUy2QDqu1TvPvtlOs2Lbh8SjmDDOZOMMbPSIMewIF0vHSRPKoE3Ef045ycKM7prFEg6EIw94mWOO+FErvGr49TrmA7xsd/ZOCEEwl7GeSGhcRklozjVwMOqNb2CQSUeLBdoBogvPaoLA5d7A/wH5n6n8ouq5jmbZllfdMIwn5Q4ewjuScShI7pjuaM8XMCxGTkYpXGVN8jylEPnrRMiQ+7iDfJ5JwhuhUTzmZVwRYio9rRYjLqZ8L6RcnDyHkIiNlOWddgQbLOEs0pLGMNk1yLU2wlqRBQPo42VnFI3eDNPGQxHkkiRTkDstQ8LQbLicdVinzsaAQ2cx0tHk7F2wseECoindIfOe6/mW7YFn2rl0p7VnGtlW0Srvlslkow3epUiiV9my7Ymzv2eWSWSrvVm4NVT1wXLW2fXiwX4VTwWOMhSQ4AUomuwpVKjBkzLhHNFUiPDgyry5C0784ot6gXoZ1+4dJW/VevFtnZwP3W71cj2D/cL98PKjkdG2Jzm16WTwKr9hJ6kZn5nHxlOLDU8uLft4323eFZu+g0DpvFK+qfu+yUH9sfq/1Gud1+7JN71rtut3sdR9a1ZPSVc97bLUb/aveyeNldDCAv2Lr+89+o90oXPa8Uqt6UGy0m73m4KgSXJhfVYZGI+i4lEnHMoCwOSopGmDRCTECtkc6KOoJ5RK6bmQ8aeuYdTDN9bWiCcQ8lXEqQS4HsVrfIwGLmKYC0WmKdR6PC3gm8HHiCZJJweYMCYJcilV5JVjmYFTWhUHYHAoo11ejaM5KPMjKPgfDWqTDhW5E3RwQPvVTU84VFNh29HqiHRLfx0wNTm+i4g8ANvGejtZfBxbKkLWpbz2VhO6MQQFIPcOybD4Dd50x/y+M6LHSEwqnTQ07icczGlUbPlsUsi8XHeWJW8/iLh/6eiZRzqS4nombMyll/M4S8k1gGFbHJJHvze4OzUphbYbfmCprPj4V2TFmXRm+V3zZjPztwKZtvF5UX98rmAh1GZGp/6qAxjPniSfrTegFjqEe/6tMLAdumuZq7OchXMDqjNTdn8r+ygckkAdXvXJLBPakuijirPAnA3oS4UoGSPAh0rcBIzf8tAGnfMo38Na2tbWanD8VbAmPHTeVykmz1X4FMwzm/GpePM6k4HQJMXMQTjG8Xdizp3qUj6+pdY79CLPhBS+LV806db1426y+2Ks4QCmVs6u9Su5JAltag2elNmP/8xLmFu72nPb/OcXmoPzxfAs/KZmXevj30M8elh+haswd641FU6Oci1nJnMIz3F+oFy0TT96fr6qdecuPnYmX3Kz5Vtwg8AOxPxvHRjacZ6W+tfXGPDXhp0eMvOxNNc5VG34AameqfLQGFl3Cuvmc/YD5nknWT9bEBIT/Al29HUhrEQAA`
+    },
+    {
       title: "Get Head Pixels",
       description: "Gets the color data of all 64 pixels in a player's face texture.",
       tags: ["Styling", "Web Request"],
@@ -74,16 +86,48 @@ const templates = [
       description: "Quantizes a color to the nearest color in a palette.",
       tags: ["Color"],
       template_data: `H4sIAAAAAAAA/81YbW/aOhT+K5GvprW6bLq04kpEXKSuLVu1q710VXWlUSHjGLDq2JnttOVW/PcdmwAmJLx0pN2nxMc+9jmPn/PYySPqc0luNQq/PyIWoXDaRrXsGaJBKgg0sRrCIBhjaJyNhjdnsV6uUUMRNng2CqyPZ53ep3dX4XGz0agRGSdSUGF0+NhFMROUKDwwIUm1kXFP4Jh2Ufga+uiDUbhrF+kiIrlU8N5F+EcKxloXGeh3lq8pFob9T4PT6aDJDfQygzkj0D/AXFN/OAx4XfNXBie75He7Zl/yyHNaLHs/gmTcusVhDRUeF4elAxy4cYGRgRnRQFCsqDZlgcr+INUEG+oHoo1it9SMlEyHo+KsoJWKiCoOic1dIdU9pxVjQ0bBQMkY8hqyOyqCBHNqDA0uzt4+U1I3E+BRKkxYr7Eo9DdTG0Zux72EAZsERIMmkxrSXBoU/jWp5eiaiB7lHl8t+cAsUwNGM05s4w4raCQ8VZjPQkQyMUwKzxBRTRRzVvC5xorhPqd2xzU1XgzNbWOAvnkI5sHsHMKX+Z54q9e3hsAxYBEBFmMvAqPSzQGcZjMIaewMLce09pfUBJRBFaiwJei93dZ2S9Go/SmN+1Qd6MOgFWF127PEa78JWu55+f5dcId5SvXC6Y9Op9E4OWl/vlzYrDa0vwGrxLBomg/n/0ElRtRHpL6CyIgJ42tYlKmfy2vhedRY8ezznsFDz1fOwOhYhCyc0B2iCx18YFFEhRVUkg2JxgA9I3nJ9Rb8ewK0z+ZGqWH87Y9MYqZYu3iKtBso2JvSeIN8TwflqOCAB7Mm0nHBQr22qgpnmRGqZJbVbRBpvDpL3cfDwTHH7z01/0LRX7toS6Fgg+dEopwQU5LOGTEXjCtbb15W0HGhM2MuhxVmFDgtcFCYgNTaUJiixFiVSxwBswoXUsVVMWjD3m/JoA3orzKoHH3Qkzn0rnaC0xEWgnKNlhnlOr2+PB7le7DivG4rCJdTeah+L5hI3On2+1XzVi7HnsvxMuJXisVWASplsf5l6LLLkj9RKjS+o9FaAIs3MyoPZ1UezxjZJI/lCC1N9k9VGMvduFlIkWazuYTktpErmlBsXlTiNlFsF427UunixnHCubwPbHU4pRvSJaHrSHWOyWgVi3J5m7lsf8DMpqyoOBca/czK9rueMnuFV51ZYf3VynwF346jg1cMPugeDmY7VqsfvslM7myC9mF5/Z4/TH8eVJXosMJEj3KJHr1kov0KEz3OJXr8kolGe8wTFjhwpXD4p3sfeu8O0HWJXkpZaZJYEPoC+vcE0HNXk2/FV5ON1+RqT5QnQbrmg08qE/THwXX2FTM9FqzV/qzIf/ZZu8Vk/WGwyx+IE02oiPxvztnan1VE1e6L506iuVNVBzzfw917iz2tF16bP9JxZWfrjnfeJ6Cz758rN5Ofv2tBPzAYAAA=`
+    },
+    {
+      title: "Invert Color",
+      description: "Inverts the RGB values of a color.",
+      tags: ["Color"],
+      template_data: `H4sIAAAAAAAA/81WbWvbMBD+K0ajpAW3LA0Z1IRA2y1tYWyjK2XQlKDYSiIqS55e2obg/76T7MRKYjfZh459snVvunvuubMXaMxE/KRQ9LBANEFRcUZh+YzQxPAYjlhOwQhsNElLa3hzEuvlDiFKsMZLK5AuPg9G3y7uos5ZtxvGIs0EJ1yraDFEKeUklniio9goLdIRxykZoqgFOvKqJR7aS4YoFkxIeB8i/NuAMBwiDXonueHPROrgsjDJH0FHNWY0Bu0EM0V8YzBohf694GQvfLA3jgVLPKfq0pcZlOJurU9qKvG8LikV4KCwGrZUcHt1ETxjZog6acpTjCdGxVgTPw+lJX0ieiaFmc7qi4KT4QmRDOpaueatxxzwNlxH7ZAmkV92guXTKJNUpViCEPJBeR4ixYRG0cc83GhsxkeEeZ21bQKxMDozGuR6ntnzM5ZwyJiRmC3zRCLTVHBPkBAVS+qk4HMPCeAxI4EWgSLaS+Ns3zQcxFUWmM+9LLQ0u5O4LCNwoW2Enmt4/4fRAaF6RmTU4+TFgtvvSZL0v5l0TOShOgp6Dkjb//5x0HPPqs2V04fBoNs9P+9/v61klsn9n9BbPq0Lc/3lF3AnIR4g7e3GzCjX/sQl5ay6uirP0+6W55iNNJ56vmIJxsAiZOEEdYRuVHBNk4RwO/5xaZLMAXoaby4I78JPOZCvjI2MpuyEupEokHbZ1O0ZYMCoYNGOVVMYbRDBwQ5iFQvHBAv0m7yujbKkU0OU9lYUbtLtKG0fDQfGCr0ror9Spe9dto1Q0Mm/RKKZDgVFV3xYzeudnTavKlDcqFK4UcMWL2qcKhwkjmHd2VSoJLG2eyZz9CvnmwuZvheDdvR+TwbtQH+bQc3owzZZQe9mJ7icYc4JU2idUU7p6TbxaO7BlvNbrYiZKJbD+/eC8uLj8v9N814uHc+ls474naSp3QDvhdzqu7w3dLUVHKRYzw5Pu93jAwp/F6+HDsuwfXT09wA2xDpdi7Unsg2xOmuxNiCHOSo/PY/5H9xUp3bvCgAA`
+    },
+    {
+      title: "Parse Location",
+      description: "Converts a string back to a location.",
+      tags: ["Location"],
+      template_data: `H4sIAAAAAAAA/7VU32vbMBD+V4xgZANTlqQZVG9bR9nGGIWGvtQlKLKSiMqSkU5ZQvD/vpPjuEribPXDnuL78d19d6cvOzJXhr84Qp92ROaE7m2SNr+ULLzmaDK7xCTMAVE02fhVewKqNlKSM2CHLPTuvt7Nfn2Z0vHNZJJyU5RGCw2O7jJSSC24ZQug3DswxUyzQmSEDjAmNmBZFppkhBtlLH5nZGmF0BlJMwKYULvumXUi+Wk4A2kwVj1jVAJTkmN8wZQTcTomDNK4NZYOPZ9C07lReQR67ft7hdPUfS/xYttjWrdGr4UFl7DEgZV6mYDBb9XwvLpE1MwX3mGOiImECi8CVtb45ap7KrS8zoVVOFgLrQbPFe7ca6DjVOY0npvptVTIglRVSpwyQOjHKj05aalnQkU3DQdCt/FQekA/bMtgr5lFo1TeMnVgR0wZBo0cuXDcytqLmEdmJZsrEfbiBEQ0bt5KQ+ojFrCB3iwe2tvw/cEiHsPzfaykhviJ54046mqvyNHkDDlXM2DLCGsOFO4CrzAFhin57pJvMs+FDnrjTUq+xYklP1Vk1PBThZduahMPUl2VQRcoC1JT6VI1bn22v9w/hL1POlm+ki6swnFT7k0t/vqUOoscLnihyrCeql3DD2f01Dwy5cX/mqp92W+eS/vivMw7iVrcvA87SocfjibqjR/F+FF//DjGj/vjr2P8dX/8JMb3EcY9IlCWxuZS4x9iK5Hb1pVMg/KjF/Ig4LNSdYLreBNngukGYugPEZoR3BQHAAA=`
+    },
+    {
+      title: "Pairwise",
+      description: "Generates consecutive pairs from a list.",
+      tags: ["List"],
+      template_data: `H4sIAAAAAAAA/+1WXU/bMBT9K5ElBGgZIkxMIhObNibYpGmapokXgiLXcVMLx47sG1hV5b/vOqTFTT9oV8rDxlNj+36cc+71dUekJzW7sSS+GhGRkfh+TcL2Nyb9SjFcUpOjEdoAL1pr/Gp2nFezCElGgY6tcHf0+Tz9/ulX/Obk+Dhkuii14gpsPEpIIRRnhvYhZpUFXaSKFjwh8S6e8d9gaOKSJIRpqQ1+Jxjb3KS54VwlJEwIoFWz/4MKcycsOtfXuC+ASsHwpE+l5b4hGuyGfmaM7FJeuZw9LTPP6SHt3QDJNBnnw8oNHU4DuuCKGwrcBiVCs0Hf6CKggRQWDhaB1L1+ZRk6+SAsGHHDYWB0lQ/mM8JVpTJuJJKauNa71zXKXSmIo1Bksc+5NMIW1OA6ZWZoEYdFTKSuQ2KlBhIf1mGntqVKufSK6yqF27qCsgLch2Hp1rfU4KKUlaFyjJXoEoRW3kbGLTOi2UWfS0RCe5IHoAPLwYNxsioMoaZQOJXXhvENnRyEvK2cVzgPUrSyNGzIJH/ApKrmbvA+rSSkt1RWfBKhPZv2P2yyLuQAppqhcOZSfsBQSkMTIjgNGsfgXRDht/PxuUQzXAZCgX+Fs/byNwkePI+OZzx7MgWae756jOrcIXBC4HFMvtrgi8gyrtw8Ya1JNkTSgnUnjpfwbY3t3MYmFQh5ULZXnjRQ5k0tbKb0viEfGVz3Rh39ZQPRMt22lOJLL8jcGOO+XBAlakhNVHAd+I2rHAaLORlecgp/SUmsQ2huU0ZT6Fdy2SkoDPZ2ENAeSrr/Otr36zqtQPCTqpwHHn1DGU4/F1UYzsCNnLIpTHutWj221APOItp+F6wWZXGEjooXHFwrXTYzZovKHD2/Mo91mNh/tay/nkMZN5c2F2Z5463aMsuL1BHnzOBN4k6fbUkz+bewmTjLFe4M1Y8lzousW/HZscKktnz1uSL6G+gw/mvwlLN4ivTpGhNUaVNsieeaT+i6LN8/Gct/55VYKvl//k5ELw/Dy8Ow6cPQGSQr2l/XfwBxgtweZREAAA==`
     }
   ];
+
+function sortTemplatesByTags(
+  templates: Array<{ title: string; description: string; tags: string[]; template_data: string; }>
+) {
+  return [...templates].sort((a, b) => {
+    const tagA = a.tags[0]?.toLowerCase() || "";
+    const tagB = b.tags[0]?.toLowerCase() || "";
+    if (tagA < tagB) return -1;
+    if (tagA > tagB) return 1;
+    return a.title.localeCompare(b.title);
+  });
+}
 
 const TemplateList: React.FC = () => {
   const [search, setSearch] = useState("");
 
-  const filteredTemplates = templates.filter(template =>
-    template.title.toLowerCase().includes(search.toLowerCase()) ||
-    template.description.toLowerCase().includes(search.toLowerCase()) ||
-    template.tags.join(" ").toLowerCase().includes(search.toLowerCase())
+  const filteredTemplates = sortTemplatesByTags(
+    templates.filter(template =>
+      template.title.toLowerCase().includes(search.toLowerCase()) ||
+      template.description.toLowerCase().includes(search.toLowerCase()) ||
+      template.tags.join(" ").toLowerCase().includes(search.toLowerCase())
+    )
   );
 
   return (
@@ -92,12 +136,26 @@ const TemplateList: React.FC = () => {
 	position="bottom-right"
 	reverseOrder={false}
 	/>
+  <div className="flex items-center mb-6">
+  <img
+    src="/icon.png"
+    alt="Tqtils Icon"
+    className="w-16 h-16 mr-4"
+    style={{ objectFit: "cover" }}
+  />
+  <div className="flex flex-col">
+    <span className="text-3xl font-bold text-white leading-tight">Tqtils</span>
+    <span className="text-base text-stone-300 leading-tight">
+      Utility Functions for your DiamondFire plots.
+    </span>
+  </div>
+</div>
       <input
         type="text"
         placeholder="Search templates..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="w-full p-4 mb-4 rounded-xl bg-zinc-800 text-white placeholder:text-stone-400 border-none shadow-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 transition duration-200"
+        className="w-full p-4 mb-4 rounded-xl bg-zinc-800 text-white placeholder:text-stone-400 border-none shadow-lg focus:outline-none focus:ring-1 focus:ring-zinc-600 transition duration-200"
       />
 
       <div className="mt-4 grid gap-4">

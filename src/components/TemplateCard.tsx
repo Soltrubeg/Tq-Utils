@@ -42,7 +42,7 @@ function copyToClipboard(title: string, data: string) {
           Send to CodeClient
         </button>
         <button
-          className="ml-6 mt-2 bg-neutral-700 hover:bg-neutral-800 text-stone-300 font-medium px-4 py-1 rounded-md shadow transition duration-200 text-sm cursor-pointer"
+          className="ml-6 mt-2 bg-neutral-600 hover:bg-neutral-700 text-stone-300 font-medium px-4 py-1 rounded-md shadow transition duration-200 text-sm cursor-pointer"
           onClick={() => 
             copyToClipboard(title, template_data)
           }
