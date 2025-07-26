@@ -138,7 +138,7 @@ const TemplateList: React.FC = () => {
 	/>
   <div className="flex items-center mb-6">
   <img
-    src="/icon.png"
+    src="https://soltrubeg.github.io/tqutils/icon.png"
     alt="Tqtils Icon"
     className="w-16 h-16 mr-4"
     style={{ objectFit: "cover" }}
