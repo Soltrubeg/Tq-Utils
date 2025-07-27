@@ -184,14 +184,16 @@ const TemplateList: React.FC = () => {
       />
       </div>
 
-      <div className="mt-4 grid gap-4 overflow-y-auto h-full pr-3">
+      <div className="overflow-y-scroll h-full pr-4">
+        <div className="grid mt-4 gap-4">
         {filteredTemplates.length > 0 ? (
           filteredTemplates.map((template, index) => (
-            <TemplateCard key={index} {...template} />
+              <TemplateCard key={index} {...template} />
           ))
         ) : (
           null
         )}
+        </div>
       </div>
     </div>
   );
