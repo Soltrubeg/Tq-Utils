@@ -155,26 +155,24 @@ const TemplateList: React.FC = () => {
   );
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-[rgba(0,0,0,0.5)] h-full">
-      	<Toaster
-	position="bottom-right"
-	reverseOrder={false}
-	/>
-  <div className="sticky top-0">
-  <div className="flex items-center mb-6">
-  <img
-    src="https://soltrubeg.github.io/tqutils/icon.png"
-    alt="Tq Utils Icon"
-    className="w-16 h-16 mr-4"
-    style={{ objectFit: "cover" }}
-  />
-  <div className="flex flex-col">
-    <span className="text-3xl font-bold text-white leading-tight">Tq Utils</span>
-    <span className="text-base text-stone-300 leading-tight">
-      Utility Functions for your DiamondFire plots.
-    </span>
-  </div>
-</div>
+  <div className="min-h-screen max-w-3xl mx-auto p-6 bg-[rgba(0,0,0,0.5)]">
+    <Toaster position="bottom-right" reverseOrder={false} />
+    
+    <div className="sticky top-0 z-10">
+      <div className="flex items-center mb-6">
+        <img
+          src="https://soltrubeg.github.io/tqutils/icon.png"
+          alt="Tq Utils Icon"
+          className="w-16 h-16 mr-4 object-cover"
+        />
+        <div className="flex flex-col">
+          <span className="text-3xl font-bold text-white leading-tight">Tq Utils</span>
+          <span className="text-base text-stone-300 leading-tight">
+            Utility Functions for your DiamondFire plots.
+          </span>
+        </div>
+      </div>
+
       <input
         type="text"
         placeholder="Search templates..."
@@ -182,21 +180,18 @@ const TemplateList: React.FC = () => {
         onChange={(e) => setSearch(e.target.value)}
         className="w-full p-4 mb-4 rounded-xl bg-zinc-800 text-white placeholder:text-stone-400 border-none shadow-lg focus:outline-none focus:ring-1 focus:ring-zinc-600 transition duration-200"
       />
-      </div>
+    </div>
 
-      <div className="overflow-y-scroll h-full pr-4">
-        <div className="grid mt-4 gap-4">
-        {filteredTemplates.length > 0 ? (
+    <div className="h-[calc(100vh-200px)] overflow-y-scroll pr-4">
+      <div className="grid mt-4 gap-4">
+        {filteredTemplates.length > 0 &&
           filteredTemplates.map((template, index) => (
-              <TemplateCard key={index} {...template} />
-          ))
-        ) : (
-          null
-        )}
-        </div>
+            <TemplateCard key={index} {...template} />
+          ))}
       </div>
     </div>
-  );
+  </div>
+)
 };
 
 export default TemplateList;
