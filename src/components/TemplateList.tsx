@@ -12,8 +12,14 @@ const templates = [
     {
       title: "Get Vector Directions",
       description: "Gets the pitch and yaw of a vector.",
-      tags: ["Vector","Math"],
+      tags: ["Vector", "Math"],
       template_data: `H4sIAAAAAAAA/7WVbWvbMBDHv4oQlDTglSYlhfrdRuhWGNugpTDqEhRJsUVtyUjnpCH4u++kPKlJurZb+yrS+U73u/uflAUdl4Y/OJreLagSNF3uabL6Temk0Ry3zObohD4gq5U3roLFR4VNQgUDtvZC62J4Ofrx5SY9uxgMEm6q2mipwaWLjFZKS27ZBFLeODDVSLNKZjTt4Df5CJZlPklGuSmNxXVGrRQZTTIK+DkYvkogt5KDsWSoLC6U0S6j7T06KWCl4ug2YaWTcRQ6dJI4P57vE9/5zGNTiihom3xWYEkh/WG43LL5Hp0jjEwDYJZ1HKkV8IIwLciczU6eAzXjSeM4AxmDOLDqQUJhTZMXh6vCXaOFtCUWtgltO/ctNr7RkPYSJdK4blcjmmXliFlrZohD2zahrjRA09M22RG41iNZRgp7udCMlaAR5rXfTJnFTV02eOqakZra6+INYBvcC+m4VcGIIaFLUEjym82ImYTlsmURzcVraUKH34fnVxDrOaLeqxsklI2AJP8b0MrwlGgz2gcoensUhdIQ30OxusHhsG1kf7AXOS5HwPIo1qwJLj2WLwI/p/TKkW9KCKn9o8BXLmKO5Sq++2xECc9bnMTV2bQBVZ7kEpa3d3t5aaA69Ao5CaOlnC88REungyI4boIK/oY8mXVPtinleo31Xeocio9CWo/qs1C7+uim2j/lqGJQHJ9+OlJ49R+Psc6k3+3GI/IGna/0VFoniUMUcsws94vuRvhrb75lVrEwYtuGefL9tvzjsA1lbqV023HTdfPGdOc7gobOfoyKy+fv3TXsvaDh4XO28WdxeP8/uv+zAWw/ufHPV9TSz5bfMJ3jf3n/TVLEcfjlD9rtUSl9CAAA`
+    },
+    {
+      title: "Get Angle Between Vectors",
+      description: "Gets the angle between two vectors in degrees.",
+      tags: ["Vector", "Math"],
+      template_data: `H4sIAAAAAAAA/81W207bQBD9FWtfaCUXkVQg4bcCokWqUKVWvJDIWu9O7BX2jrU7JkVR/r2zdi7OBQq0SDzFOzuXc86Mx5mJrER150VyOxNGi6Q7i3jxm4hJYxUfpcvZiX0IqoU3P7WWENUeYqElyaUXW2cXl+n12a/k8+nxcaywqtGCJZ/MRqIyFpSTE0okkTNZQ5BWqM3EgPMjzrE6JLfj2Bc4TY1NCbEkUydH2Tzu51CNJ6xSKyvg2APOD7/JyVEAOhIKS3T8PBIO9EhwJPF1a/gKFH2xeQnRGdAUwEY3oAgDhPmYHQ3J0ih2ncjSQz+SHQ42MBRGQyq1NmTQynKJNXDZBMtgAsrbADPDUveyr5FOC9awxbqfSe7kww4VH1EBkWz5ZAs+NMXovuMUGRtpyB2AP3yMH2aTxitJ0IfluUN3QIXDJi/2i8GnxmpwJdNchc4PxhvMawzapAothTkI0nSmpO/F1dDmqZ+aCVnwoRVznp7GUjKIjd7wZYFr0Kl0DqfsFzyFL5FEcjSPt2a0timUvSEN08JmbKhuiO30UIfzvXR8qMvGyXJJVWDddXVl0OCVM62VY26kMzJj1QkjD9SDcfpcGNyjQQ8EqJeDaLscDXrVB89WgQsO/0v5Yb/8YKd8YSz1F4VerJg2yTpyeLwTmfErJfNeLC4rXwY4ATxfJ+LKR9+M1mDD1lILF/3API3a3mu9gifz8XyZWzRkysMcqF0Ni83A/LxoUe1bk9z1tJucv2zKzml/873CVv7wEm2McoC24vITqNP6O9icijfENHxvmDTSU5C2R+YVWu9O7CvEGW6Kc4H0w6FuFL0TXWxT7eb4NHhShr0xg8dJn5eyqq+bKgP3VqxXm/vfBuJJ8XaFeHwPXdl7/r8CkULPSaIP0qnu8eNqOZ13V+33ol2Ea73amz3avHIpXnQf+vVatJ1WLyp4stXTLoSNfwCBtaFjOAoAAA==`
     },
     {
       title: "zfill",
@@ -40,6 +46,12 @@ const templates = [
       template_data: `H4sIAAAAAAAA/8VUTW/bMAz9K4YuOcwomg0ZUAM7dN2yDRh2KnqpC0ORlVioLBkS1S4I/N9HKXai1HHTdgN2sknx45F85IYspGb3lmS3GyJKkm1lknbfjCydYihSs0IjtAFed9b4FzTeKwgpKSnQ3gq1my/z4tfn6+zDxWyWMl03WnEFNtvkpBaKM0OXkDFnQdeFojXPSTbBN/4bDM19kpwwLbXB/5wYXuYkzQngc1BcaacguaHSoWN7h08CqBQMH5dUWh7bosEkjbNiVJ/u1udbaFlGTvuUjxUWEpIeh7QydH2I6RsHm0DFE1oHdHqZ0OTBQ0yEwl8pLJyNodWLpbOMAo/RWDDinkNltFtVx0tDyamSG4nV7VzbyV2LPUcQ2TQVZRYXD86A5IVlzpfXkrZNiZUaSHbepk8m26iCy2i0fk6o1g4aB6iHdePlB2pQaKQzVPYgiW5AaBUpSm6ZEUGLPjfUCLqQPAGdWA4RjIuXwvD93IPopNeh+IlOHkHo1W5WEZjpi5si1EFPqFq/oSc+fw8nRjEdoKiEgnjpym5dQ6i95/vZwHMhC6CryFf3+ecelC8BnzPywybfRVly5S8A60zKNZYr2NMbESX82CL3utjEgZBnoRqsjQQox+4MEqDYkujEqdkajdHRMt1RQfFnea1cPQxzHjc8FLGr+tM4dMMbTuGNyJFwr4F9NEbH+5EgQ+KMj//auP30L6XUj0nYj6uKqhW3MQ3m2nylrBr2YUCEgcu+k4YyPG4eiTCcgZ9kE9jWrVAfcqz1YvkXpPkXre9XfrT3oyQ6VbrSpv5/63IA+93zuJnU25txFPhJ+37Gd+0fngqxxo4IAAA=`
     },
     {
+      title: "Compare Strings",
+      description: "Compares two strings and returns the Levenshtein distance between them.",
+      tags: ["String", "Math"],
+      template_data: `H4sIAAAAAAAA/+1YXW/bNhT9KyqBojEiFJWLDKiwPXTpgg3IiqIt+lIHAk1dW2wpUqAu4wSB//tISUlk2VZsS8rSok8WKfJ+nHt4xOsbMhWKfc9J+PWG8JiE5Zj41W9IZkYyO6R6bhfZNQhptdo+FTNuVzHwSUyR3q6yszfvzqL3f34OX785OfGZSjMlQWIe3kxIyiUwTWcYMpOjSiNJU5iQ8IV9B1eo6cQ5mRCmhNL2eUI0xBPiTwja18XEqTVINXifUHM5zydkeWFfc6SCM7tgRkUO9fV2wQu/7tladi6/Op9TJeLapnu3i8QmUzjeHNZc0+uNceUeLpSXl8F5VMbeHNBOJuCdwyXIPEHgclvUajozOaMI9aicse+AiVZmnmxO0Y6MjEELm+XdVpt3zznGPEcqGXhTwAWAdGmlLx8pmYulJZORGAY+j8MVLhXQU3RxL8ly6ZNcKCThq6XfIGwmIxA1xjr62WllMDNo5/E6c+NLqu0gE0ZTcRsiURlyJWsTMeRM82LW7vlCNadTAR7a8gPWwnizaxgWm+A+CLzCvYMoD4UX1LwHO6Ng3Y97cT+uuw/W3CdcYl014kpvCiP3O8cnazunIkI6r+1Vt57PXDguePs6JP/k3t88jkE6CWPVkvja5slZU+RqDn9bWo5VtolBLl6WzIJKa0gR0Ca5tAWPStI8oJjlogbwAqSre85UgbzjfSuLNxqpyLPFSFCkdodFmdA5yDkmA2Y17iOrFiMHZcVn/3ep2pFpJPV7LRNNmdVOZ5BrYOiUKytIXp1ZqXS6PXFGhYh2+7BvDPtOJYctaQ9sHx98kJmSqJXYgNBKUT4CGi1bK8OEKhVpl9J05eReB02adN3Iq+0M/KM3BnYTlJ74136EW3J/GlTRkAHFAyHk9l511TNXepC88Sro3kcq5+DtQbsKlIGIl2m45MrkkVaLzvR7oAQN/r3NbJ7xFyoM7EOhYfEAaYa/rzSNlPfRhpHtHPqUCY6l3A8Iw/AXnMeAoZOksO5UaOfTOgbb24DP2tx3AW+FUAvv3Pas3mniFCWvtwNnSv9FWbIOw1pDsLblqegSb0N+JfLjlu9YtxiY0Rok9iONO8viqbawgivtUHl9e6wbVa9nsbsetYvar7N4EF92Poud+oAelLiNQA0OP3sqbQELIqkw2o/7G09scGgPtNcFHtw/VT8bdAe3j3tB1y3blMvOeT5PKSZHz4tL/FG9L/CrN9bz0beRd+wFo9FxMGrVzoc91L6ufmW6YXXcOe5bs8XDHSNGdSevVyv6L5fvTToF/SNcKlqr/iN0W712nzsh2+UAD4tFT38B7QZpA4YPKnP3l4odF8v/AAxKMR9FHQAA`
+    },
+    {
       title: "Trim Dictionary",
       description: "Trims a dictionary, starting and ending at the given indices.",
       tags: ["Dictionary"],
@@ -48,7 +60,7 @@ const templates = [
     {
       title: "Translate String",
       description: "Translates a string using 2 character mappings.",
-      tags: ["Styling"],
+      tags: ["String"],
       template_data: `H4sIAAAAAAAA/9VXbVPiOhT+K51+8cPWnRYuIr3jB3eRK47gqF13QZ1OSAMNpkk3SUVk+O/3pIAWEV/X3Xu/QJOcc/LkOS85mdg9JvCVsv3ziU0j25+NbWf+79v9jGMYIjkAIZDRJJlLw1c+Y7TygWNHSKOFFMxO6o2w/SXwy7VKxcEiSQUnXCt/cmEnlBMsUV/7OFNaJGEiIsJCY+DC9l3nEQmOEgJrG6BNbrQ0cufwjQUTEr4vbPQzg0lQ1bCezwQSccWQJtaplpQPLuzpJaxTjRjFINFHTJGiAghsLO0djUkULraYyEHP99yK521tu46KxSikPNRCME1T3+1Nl1QJxzHiOjFHNsqMXBMGh58+qxnTiIQoiqimgiO2kDNGlgUBlqHk3HDSEywqHOmellEM7sh5eZy2gUTjNbQpC1kqZ87KlPktWXAmqYhWn9dxKXr9TGFQLqIxRq6IjqXIBvHjxMMo4xGRDE53pzrduFw6cCpFnzJz5gmN/PPm35ulkltxa+52zfHKNbdU9rZr285myXW9ahXWqk7Nq1RrbvUv79IxEQR71Rub+3u7ddgSzKVEakoUcDJfNZAyScBlzjVimZki4wO3+yN2ox8HDI+bWzAOTl121Bym1SY/G/e+NreaCazv724djmsF2YpG3yusUz6Iu/w46yVn7mH5hJH9Ew8n3667ybfbVp1ddYftYavUGnWGDdoN9katUjs+quPyUXB120kaSat+MGzfNm/bQafS+X580wmipDP8krSTTrkV7N12g3jYHXbjzvDKa3Kv1j/e2THumU4h6zKufc8BtpZ4ZGhMZBgTBFRPbRC0FRMaMm/qPEjtlIeEFXLb0ATTItNppmFej1MzvkYSBinLJGIL/9oinUXw3UREFJY0nwWdMyQp6jFiaWFBTBVg1F4Kg/IlFPpGvxrFrDQYDHoR9wUk3osZ0SLMDbwPzVeTX2vBeC8G834kiyoAI1XEUFrBEFOui9U/mt8buaF7zVJlRbMHxQ0NCrpisXvDQDIHgGXfbiprn0YR4eYqwnORaAyHpfjhZVXYcAtyYGHbzjRlnwusOmtuPIjEcBbNz1x6M6H1UaCwyMk3Fe3JFHujodVgmLn5gaEiITkfdwSepozqWfh/GB2/hov/AhGSpATpN/Jgrs0/EhLrMyyQ2X2C7TImRtYhVdqCCsQHRBUzrSHkHsLxKhkrubaick+nRBhaAIOESoK1uUPSPKHnNWph8mMCkT7F/hLyTzsfhSFFUv+RIHgtIw/S4x+iTWScmXboo7gB7//+MvE/4GXR4LyPmWesvJCZp+N3tS94vaPLr6hfULIsgXEmJby08no1K2UnBLpbTMy7ywpMaSl4bL42L/WrPnpjs1KnyvSxBQiDjCFp7d2k8JJQeQf1NhQPquqy5lO1FTMx659+R3G9ewx8cJQucbFjXjj/AqS0kfzBEAAA`
     },
     {
@@ -72,7 +84,7 @@ const templates = [
     {
       title: "Reverse String",
       description: "Reverses the characters in a string.",
-      tags: ["Styling"],
+      tags: ["String"],
       template_data: `H4sIAAAAAAAA/8VU33ObOBD+Vxhe8oI7YAccuOlDek4u9oRk4jg/7CTDCCEbOULihEhKPfzvXWE7xanb3t1M555gd79dffutViszZgI/F2bwsDJpYgZr27Q238CclxyDieQCQIBRJNug4a/x6KzGsMwEKbRFgXc1OI0uPk2Cnu+6FhZZLjjhqghWj2ZGOcESzVWAy0KJLMpEQlikCzyagW3tQXCUEYgdQDb5rKTGPcA/FkxI+H800d8lOCFVQbzxjMkLkQUxrpWkfPFo1k8QpQoxiiE+R6wgbTgADnZOTiqSRNsDVnIRB47tOo53ZFtFKl4jyiMlBFM0D+y43kklHKeIq0w3rJMZUGHQev3LzJQmJEJJQhUVHLEtThfZBQItLciDViQWLGm19E2U1xSG0aiyX7SFRNVe0QpDpcSAJiTCChwG5QYyikbJDz+SUsTzssBIkTYZnfNMVCpFuUj36w5WyRMiGTT3llofPO30m0sxp0y3vKJJ8DD8o9P3D7u9bt/1rY7nOkdev+d7Vsfpu4ceXDmnb3W6tn3o+/aR92Tp+wOHDU47ZyfHAzgT6uVEKkoK0GQT1ZxKSWBk1gtipXaRamTP7lM7uR8xXA09sCfXNrscLvP+kN9W8Z9Db5hB/OzYO6/8FtZV6M5l094onfGrMs5u7fPemJGzsYOzm5fwC7bD7vR1OgkPLwYsnWVXTvjXeBl+CavZ5HY5vbuqLgfjNFzeOBeTk254d2JPs6kbTobVdJIuL5ahczm5ep0u2XO4PGWzQeiG1cif39sf9XzqGnau5CpwLJBrR0iGKiKjlCDQujYBaBZMKNi72nq32DmPCGtttpYJ3KJUeanAr6pc2y9IgpGzUiK2HbAp8vUNfnMkpMCSNl7IuUWSopgRQwmjIKpFw/+nNCjfYaE+q3/NYv00aA5yfe9bPJzv9YhhH9GixURsC53q6poLhANzWBhnNEkI128n3kCSCnhT/P51/XZg14OxbWubpaLsw4bVmqbZ8Nn3TIOA0XoIv3ip16Af6Fhg0Qip1/Cn1+K/VHG+q7Ke17sqbTkaNd7ku84ZVf+zEDuENi/lOS3U7yL0tmi/eTQ7fY0E5Vudn+qv2A9gWyQIAAA`
     },
     {
