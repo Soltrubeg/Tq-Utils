@@ -155,11 +155,12 @@ const TemplateList: React.FC = () => {
   );
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-[rgba(0,0,0,0.5)] h-full overflow-y-scroll">
+    <div className="max-w-3xl mx-auto p-6 bg-[rgba(0,0,0,0.5)] h-full">
       	<Toaster
 	position="bottom-right"
 	reverseOrder={false}
 	/>
+  <div className="sticky top-0">
   <div className="flex items-center mb-6">
   <img
     src="https://soltrubeg.github.io/tqutils/icon.png"
@@ -181,8 +182,9 @@ const TemplateList: React.FC = () => {
         onChange={(e) => setSearch(e.target.value)}
         className="w-full p-4 mb-4 rounded-xl bg-zinc-800 text-white placeholder:text-stone-400 border-none shadow-lg focus:outline-none focus:ring-1 focus:ring-zinc-600 transition duration-200"
       />
+      </div>
 
-      <div className="mt-4 grid gap-4">
+      <div className="mt-4 grid gap-4 overflow-y-auto h-full pr-3">
         {filteredTemplates.length > 0 ? (
           filteredTemplates.map((template, index) => (
             <TemplateCard key={index} {...template} />
