@@ -128,6 +128,12 @@ const templates = [
       description: "Decompresses data that was compressed using gzip and base64 encoding.",
       tags: ["Compression"],
       template_data: `H4sIAAAAAAAA/91WS3PaMBD+Kx71wMXNlDakiY+EcR+HXkJziTOMbAmjRpY80ioNZfzfu7INGAJJSUun05O9q318u9+u7AVJpc7uLIluFkQwEjUyCdtnRKZOZShSk6MR2gAvWmt8qzXeqxZCwijQpRVqF6N48mU4jt5dDAZhpotSK67ARouEFELxzNApRJmzoIuJogVPSNTDM/4AhiY+SUIyLbXB94S8iuPR6fs4IWFCAE1q5Yj7sIZbG4wwd0KqWzwWQKXI0GBKpeVdezTohd3sGN2nvfF5Uy1Zx2md+vsMC6oT74aWGzrfh4vbgKp5cE+l44GzQuXBhx+iRCULhtTys9OTfah1OnU2o8C7qCwYccdhZrTLZ7tLRMkpxo3EKleuVe+2Qg6cgqgfChZtUOCpscCxmopUVUis1ECiN1W4RXOpJlx2ePakoVo7KB2gHuall++pQaGUzlC5REh0CUKrjoJxmxlRa9HnmhpBU8kD0IHl0IFx8aswhNpAAQ9wMIrLJWssqIOvUfQfd2MmFHSHnrXrUsdae74dPPJM5QRo3vHVSwCxR+VrwOOIfLLBR8EYV34Ds9aEzbFekW3vaCfhWYVct7GJAyFP2GoeR3VZ4Z5tx85PGvaeWfjGaIuAdA7cotpmumbAD+CT87QzypLGPVH6B3Tz6zh+fb7q5uWMGj9anV5e4TapfKyHLfLtPryQxbFxaxKvRI57+MKsDZV7PP9pGp+J0t8srLkK/bXJ+P9Ul7/r1x+DY1X2zWp1/ML+4N7V8zvWzTj/tb07IOvW3m16HonF1Wf093h8ehi25vMzGsdGF9f+/wT/Q6qfv6hNhBIKAAA=`
+    },
+    {
+      title: "Slerp Vector",
+      description: "Interpolates between two vectors using spherical linear interpolation (slerp).",
+      tags: ["Vector","Math"],
+      template_data: `H4sIAAAAAAAA/+1XbU/bMBD+K5GnCTp1jDKBtEj7AEPTkDY00Wlf6FS5ttNYc+zIvsAQ6n/fxSmt6RvJShgf+NTYvjs/99xLz7dkpAz77Uh8eUskJ3G1Jt3pb0ySQjNcUjtGIZQBkU2l8cvvlFp+0SWcAr2Twt3b08/D85Mf8fsPh4ddZrLcaKHBxbcDkkktmKUJxKxwYLKhppkYkHgHz8QfsHRQXjIgzChj8XtAXh3QJKG43x0QQBG/2c9TYSWjKvqKBqmNzjQImxtFQRo9IJNfKC2BKslQPqHKiVAdBXa6IRi8rERxWcIYGcUDpTmS6xT98zhWIx1benMf5hyVcNFIwLUQOoJrE10JBsa6iDJrHP5EbuZQTiHdW+eBGSWFY2guROjAyt8CUmuKcbraXVwVmgur0OOZ6mTn1wTDU2iIe13J45CQa6n5kKUYfvR4QiaTLnHKAIn3J92FHMj1UKggCcqI4rYpIC8A9+EmL9dX1OIiV4Wl6g4jMXkZr2CDC8es9Luo85NaSUdKRGAiJyCA8aEujACBLrLGCH7ITES7+297neDyXm0SEmuygALBmlPgM6UkQM6TKfJ2A0C92nSYNuCg1QDMwRKYFIXDNsGnDcYbnWseHC5pjtQQ6DjQNXdIPpfwSmfwOCZnLvoiORe67FlsKsJv0GvJFrtacOHRBEtgapsUINWeU+gV8ThWtUXMwmGVyQ90xkpoRTI6Zjz7ZSlurKumFpZzoEr4BQv7of/1VHqBynvP2IziT4pm+XmRjYRti7Qy18+Nzajamr1pOa4l8J5rfQFVtn8VegxpazlhHsk5X9rPyjVutk/4OtFfzvx/ZPrgPk2nBr5bwwsGbTFE9ViJrTnayPMyOet76pm+EtaJiBmHRqJdaln12Zk12k/Vkf9n9k193gr8yQpq/rHBX1COV7h5i9fVPNHowqOFdlWprI2mTJ4ymA/254Wy/RgAt5ThzFeqS4ulXA5cuf/3uxt2MNXbytrZaPeE3fjjemeY0WCNWuHMPQsXAgqrN1LIlKlmivY5xDwcQipwb1saH0i7JvXfr+qpqrf+mjrvP22VP3zdQo33N1b4lv166/J+neH7brf39jXa34XOG//rQ9jpvETtGUStqYWaw0eNel+extcH4FQktFAwC8CpvJIOj6JvhoswEO8aReFdWyEYPVLhvJTN05VNo5g1tfBSNnVHpOPWB61tW+DCs+kbMixzdVM9Mdt7N5+0/GTeNsX/Cy2POJtvSLzaL+4NMVqg55jzihlH8OAvwykWD6EYAAA=`
     }
   ];
 
@@ -161,12 +167,12 @@ const TemplateList: React.FC = () => {
     <div className="sticky top-0 z-10">
       <div className="flex items-center mb-6">
         <img
-          src="https://soltrubeg.github.io/tqutils/icon.png"
-          alt="Tq Utils Icon"
+          src="https://soltrubeg.github.io/dfutils/icon.png"
+          alt="Solturne Utils Icon"
           className="w-16 h-16 mr-4 object-cover"
         />
         <div className="flex flex-col">
-          <span className="text-3xl font-bold text-white leading-tight">Tq Utils</span>
+          <span className="text-3xl font-bold text-white leading-tight">Solturne Utils</span>
           <span className="text-base text-stone-300 leading-tight">
             Utility Functions for your DiamondFire plots.
           </span>

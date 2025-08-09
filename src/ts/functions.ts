@@ -32,7 +32,7 @@ export function sendTemplate(title: string, data: string) {
             "minecraft:custom_data": {
                 PublicBukkitValues: {
                     "hypercube:codetemplatedata": JSON.stringify({
-                        author: "Tqlted",
+                        author: "solturne",
                         name: title,
                         code: data,
                     }),
@@ -49,5 +49,5 @@ export function sendTemplate(title: string, data: string) {
 }
 
 export function getGiveCommand(title: string, data: string): string {
-    return `/give @p ender_chest[custom_name='{text:"${title}",italic:false,color:aqua}',custom_data={PublicBukkitValues:{"hypercube:codetemplatedata": '{"author": "Tqlted", "name": "${title}", "code": "${data}"}'}}]`;
+    return `/give @p ender_chest[custom_name='{text:"${title}",italic:false,color:aqua}',custom_data={PublicBukkitValues:{"hypercube:codetemplatedata": '{"author": "solturne", "name": "${title}", "code": "${data}"}'}}]`;
 }
